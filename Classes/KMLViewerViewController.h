@@ -3,7 +3,7 @@
  Abstract: 
  Displays an MKMapView and demonstrates how to use the included KMLParser class to place annotations and overlays from a parsed KML file on top of the MKMapView.
  
-  Version: 1.1
+  Version: 1.3
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following
@@ -43,7 +43,7 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  
- Copyright (C) 2010 Apple Inc. All Rights Reserved.
+ Copyright (C) 2012 Apple Inc. All Rights Reserved.
  
 */
 
@@ -54,7 +54,7 @@
 
 @interface KMLViewerViewController : UIViewController {
     IBOutlet MKMapView *map;
-    KMLParser *kml;
+    KMLParser *kmlParser;
 }
 
 @end

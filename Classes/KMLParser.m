@@ -10,7 +10,7 @@
          Placemark.
       All other types are ignored
   
-  Version: 1.1 
+  Version: 1.3 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
  Inc. ("Apple") in consideration of your agreement to the following 
@@ -50,7 +50,7 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE 
  POSSIBILITY OF SUCH DAMAGE. 
   
- Copyright (C) 2010 Apple Inc. All Rights Reserved. 
+ Copyright (C) 2012 Apple Inc. All Rights Reserved. 
   
  */
 
@@ -295,22 +295,6 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
 
 @implementation KMLParser
 
-- (id)init
-{
-    if (self = [super init]) {
-        _styles = [[NSMutableDictionary alloc] init];
-        _placemarks = [[NSMutableArray alloc] init];
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [_styles release];
-    [_placemarks release];
-    [super dealloc];
-}
-
 // After parsing has completed, this method loops over all placemarks that have
 // been parsed and looks up their corresponding KMLStyle objects according to
 // the placemark's styleUrl property and the global KMLStyle object's identifier.
@@ -329,20 +313,31 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
     }
 }
 
-+ (KMLParser *)parseKMLAtURL:(NSURL *)url
+- (id)initWithURL:(NSURL *)url
 {
-    NSXMLParser *xml = [[NSXMLParser alloc] initWithContentsOfURL:url];
-    KMLParser *parser = [[KMLParser alloc] init];
-    [xml setDelegate:parser];
-    [xml parse];
-    [parser _assignStyles];
-    return [parser autorelease];
+    if (self = [super init]) {
+        _styles = [[NSMutableDictionary alloc] init];
+        _placemarks = [[NSMutableArray alloc] init];
+        _xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+        
+        [_xmlParser setDelegate:self];
+    }
+    return self;
 }
 
-+ (KMLParser *)parseKMLAtPath:(NSString *)path
+- (void)dealloc
 {
-    NSURL *url = [NSURL fileURLWithPath:path];
-    return [KMLParser parseKMLAtURL:url];
+    [_styles release];
+    [_placemarks release];
+    [_xmlParser release];
+    
+    [super dealloc];
+}
+
+- (void)parseKML
+{
+    [_xmlParser parse];
+    [self _assignStyles];
 }
 
 // Return the list of KMLPlacemarks from the object graph that contain overlays
@@ -450,7 +445,6 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
     } else if (ELTYPE(LinearRing)) {
         [_placemark.polygon beginLinearRing];
     }
-    
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName
@@ -463,7 +457,6 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
     if (ELTYPE(Style)) {
         if (_placemark) {
             [_placemark endStyle];
-           //•• style = _style;
         } else if (_style) {
             [_styles setObject:_style forKey:_style.identifier];
             [_style release];

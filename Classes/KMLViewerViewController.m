@@ -3,7 +3,7 @@
  Abstract: 
  Displays an MKMapView and demonstrates how to use the included KMLParser class to place annotations and overlays from a parsed KML file on top of the MKMapView.
   
-  Version: 1.1 
+  Version: 1.3 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
  Inc. ("Apple") in consideration of your agreement to the following 
@@ -43,7 +43,7 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE 
  POSSIBILITY OF SUCH DAMAGE. 
   
- Copyright (C) 2010 Apple Inc. All Rights Reserved. 
+ Copyright (C) 2012 Apple Inc. All Rights Reserved. 
   
  */
 
@@ -57,15 +57,17 @@
     
     // Locate the path to the route.kml file in the application's bundle
     // and parse it with the KMLParser.
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"route" ofType:@"kml"];
-    kml = [[KMLParser parseKMLAtPath:path] retain];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"KML_Sample" ofType:@"kml"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    kmlParser = [[KMLParser alloc] initWithURL:url];
+    [kmlParser parseKML];
     
     // Add all of the MKOverlay objects parsed from the KML file to the map.
-    NSArray *overlays = [kml overlays];
+    NSArray *overlays = [kmlParser overlays];
     [map addOverlays:overlays];
     
     // Add all of the MKAnnotation objects parsed from the KML file to the map.
-    NSArray *annotations = [kml points];
+    NSArray *annotations = [kmlParser points];
     [map addAnnotations:annotations];
     
     // Walk the list of overlays and annotations and create a MKMapRect that
@@ -93,16 +95,23 @@
     map.visibleMapRect = flyTo;
 }
 
+
+- (void)viewDidUnload
+{
+    [kmlParser release];
+    [super viewDidUnload];
+}
+
 #pragma mark MKMapViewDelegate
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
 {
-    return [kml viewForOverlay:overlay];
+    return [kmlParser viewForOverlay:overlay];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    return [kml viewForAnnotation:annotation];
+    return [kmlParser viewForAnnotation:annotation];
 }
 
 @end

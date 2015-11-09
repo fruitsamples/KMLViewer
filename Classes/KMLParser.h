@@ -10,7 +10,7 @@
          Placemark.
       All other types are ignored
  
-  Version: 1.1
+  Version: 1.3
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following
@@ -50,7 +50,7 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  
- Copyright (C) 2010 Apple Inc. All Rights Reserved.
+ Copyright (C) 2012 Apple Inc. All Rights Reserved.
  
 */
 
@@ -65,10 +65,12 @@
     
     KMLPlacemark *_placemark;
     KMLStyle *_style;
+    
+    NSXMLParser *_xmlParser;
 }
 
-+ (KMLParser *)parseKMLAtURL:(NSURL *)url;
-+ (KMLParser *)parseKMLAtPath:(NSString *)path;
+- (id)initWithURL:(NSURL *)url;
+- (void)parseKML;
 
 @property (nonatomic, readonly) NSArray *overlays;
 @property (nonatomic, readonly) NSArray *points;

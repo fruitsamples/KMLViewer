@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1A4B76FB11907DD600940A50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4B76FA11907DD600940A50 /* MapKit.framework */; };
 		1A4B770A11907E0300940A50 /* KMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B770911907E0300940A50 /* KMLParser.m */; };
-		1A4B771F1190908600940A50 /* route.kml in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B771E1190908600940A50 /* route.kml */; };
 		1A4B77311190911400940A50 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4B77301190911400940A50 /* CoreLocation.framework */; };
 		1D3623260D0F684500981E51 /* KMLViewerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* KMLViewerAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -19,6 +18,7 @@
 		28D7ACF80DDB3853001CB0EB /* KMLViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* KMLViewerViewController.m */; };
 		533ECC0B11F63EA00067A265 /* KMLViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 533ECC0711F63EA00067A265 /* KMLViewerViewController.xib */; };
 		533ECC0C11F63EA00067A265 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 533ECC0911F63EA00067A265 /* MainWindow.xib */; };
+		535BE74414B7C82C00969FF3 /* KML_Sample.kml in Resources */ = {isa = PBXBuildFile; fileRef = 535BE74314B7C82C00969FF3 /* KML_Sample.kml */; };
 		5398E9ED11F640E0002BFB95 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5398E9E611F640E0002BFB95 /* Icon-72.png */; };
 		5398E9EE11F640E0002BFB95 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5398E9E711F640E0002BFB95 /* Icon-Small-50.png */; };
 		5398E9EF11F640E0002BFB95 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5398E9E811F640E0002BFB95 /* Icon-Small.png */; };
@@ -32,7 +32,6 @@
 		1A4B76FA11907DD600940A50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1A4B770811907E0300940A50 /* KMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLParser.h; sourceTree = "<group>"; };
 		1A4B770911907E0300940A50 /* KMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLParser.m; sourceTree = "<group>"; };
-		1A4B771E1190908600940A50 /* route.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = route.kml; sourceTree = "<group>"; };
 		1A4B77301190911400940A50 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* KMLViewerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLViewerAppDelegate.h; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		32CA4F630368D1EE00C91783 /* KMLViewer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLViewer_Prefix.pch; sourceTree = "<group>"; };
 		533ECC0811F63EA00067A265 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMLViewerViewController.xib; sourceTree = "<group>"; };
 		533ECC0A11F63EA00067A265 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		535BE74314B7C82C00969FF3 /* KML_Sample.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KML_Sample.kml; sourceTree = "<group>"; };
 		5398E9E611F640E0002BFB95 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		5398E9E711F640E0002BFB95 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		5398E9E811F640E0002BFB95 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 				533ECC0711F63EA00067A265 /* KMLViewerViewController.xib */,
 				533ECC0911F63EA00067A265 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* KMLViewer-Info.plist */,
-				1A4B771E1190908600940A50 /* route.kml */,
+				535BE74314B7C82C00969FF3 /* KML_Sample.kml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -179,8 +179,12 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "KMLViewer" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -203,7 +207,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A4B771F1190908600940A50 /* route.kml in Resources */,
 				533ECC0B11F63EA00067A265 /* KMLViewerViewController.xib in Resources */,
 				533ECC0C11F63EA00067A265 /* MainWindow.xib in Resources */,
 				5398E9ED11F640E0002BFB95 /* Icon-72.png in Resources */,
@@ -213,6 +216,7 @@
 				5398E9F111F640E0002BFB95 /* Icon.png in Resources */,
 				5398E9F211F640E0002BFB95 /* Icon@2x.png in Resources */,
 				5398E9F311F640E0002BFB95 /* iTunesArtwork in Resources */,
+				535BE74414B7C82C00969FF3 /* KML_Sample.kml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +260,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -270,6 +278,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = KMLViewer_Prefix.pch;
@@ -287,8 +299,8 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -300,9 +312,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
